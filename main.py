@@ -17,11 +17,22 @@ def flatten_pdf(pdf_path, output_path):
     doc.save(output_path)
     doc.close()
 
+def crop_image(image, margin_width, margin_height, page_num):
+    width, height = image.size
+    cropped_image = image.crop((margin_width, margin_height, width - margin_width, height - margin_height))
 
-def ocr_pdf(pdf_path):
+    # Save the cropped image
+    if not os.path.exists('cropped'):
+        os.makedirs('cropped')
+    cropped_image.save(os.path.join('cropped', f'page_{page_num}.png'))
+
+    return cropped_image
+
+def ocr_pdf(pdf_path, margin_width=100, margin_height=100):
     images = convert_from_path(pdf_path)
     text = ""
-    for img in images:
+    for i, img in enumerate(images):
+        img = crop_image(img, margin_width, margin_height, i)
         text += pytesseract.image_to_string(img, lang="eng")
     return text
 
