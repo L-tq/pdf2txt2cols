@@ -1,6 +1,7 @@
-# PDF and txt
+# PDF, figgure and txt
 *.pdf
 *.txt
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

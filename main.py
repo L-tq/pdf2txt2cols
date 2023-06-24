@@ -28,7 +28,7 @@ def crop_image(image, margin_width, margin_height, page_num):
 
     return cropped_image
 
-def ocr_pdf(pdf_path, margin_width=100, margin_height=100):
+def ocr_pdf(pdf_path, margin_width=100, margin_height=120):
     images = convert_from_path(pdf_path)
     text = ""
     for i, img in enumerate(images):
