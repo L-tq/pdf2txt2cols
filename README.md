@@ -1,5 +1,5 @@
 # pdf2txt2cols
-Convert pdf file with two columns to txt file. OCR applied first
+Convert two-column pdf file to txt file. OCR applied first
 
 # Install requirements
 ```
